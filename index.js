@@ -8,12 +8,17 @@ const apiGet = require('./routes/routes')
 const mongoose = require('./db/mongodb');
 const path = require('path')
 
-const corsOptions = {
-    origin: 'https://store-modal-hkir3794f-jzpoe.vercel.app',
-  };
-  app.use(cors(corsOptions));
-const port = process.env.PORT || 3000;
 const app = express();
+const port = process.env.PORT || 3000;
+
+const corsOptions = {
+    origin: 'https://store-modal.vercel.app', // Permitir solicitudes desde este origen
+    methods: 'GET,POST', // Permitir los métodos GET y POST
+    optionsSuccessStatus: 200 // Retornar el código de estado 200 para las opciones preflight
+  };
+
+  app.use(cors(corsOptions));
+
 
   app.use(express.json());
 
