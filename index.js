@@ -8,12 +8,14 @@ const apiGet = require('./routes/routes')
 const mongoose = require('./db/mongodb');
 const path = require('path')
 
-
+const corsOptions = {
+    origin: 'https://store-modal-hkir3794f-jzpoe.vercel.app',
+  };
+  app.use(cors(corsOptions));
 const port = process.env.PORT || 3000;
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+  app.use(express.json());
 
 
 
